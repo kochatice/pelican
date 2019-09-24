@@ -1,0 +1,18 @@
+branches:
+  only:
+  - master
+language: python
+python:
+- 3.5
+install:
+- pip install -r requirements.txt --use-mirrors
+script:
+- make html
+notifications:
+  email:
+    on_success: always
+    on_failure: always
+after_success: bash deploy.sh
+after_script:
+  - git config credential.helper "store --file=.git/credentials"
+  - echo "https://${GH_TOKEN}:@github.com" > .git/credentials

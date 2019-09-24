@@ -1,0 +1,7 @@
+pelican
+markdown
+fabric
+beautifulsoup4
+typogrify
+pillow
+webassets
